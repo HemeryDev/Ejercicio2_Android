@@ -1,10 +1,12 @@
 package com.sena.clase_01.ui.screen
 
-import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Surface
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -14,21 +16,18 @@ import com.sena.clase_01.ui.section.Footer
 import com.sena.clase_01.ui.section.Header
 
 @Composable
-fun Home(modifier: Modifier = Modifier) {
-    Surface(
-        modifier = modifier.fillMaxSize(),
-        color = Color.LightGray
+fun Home(modifier: Modifier = Modifier) { // Se añade el parámetro aquí
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .background(Color.White)
+            .verticalScroll(rememberScrollState())
     ) {
-        // Columna principal que ordena las secciones de arriba a abajo
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(10.dp),
-            verticalArrangement = Arrangement.spacedBy(10.dp)
-        ) {
-            Header()
-            Body(modifier = Modifier.weight(1f))
-            Footer()
-        }
+        Header()
+        Spacer(modifier = Modifier.height(16.dp))
+        Body()
+        Spacer(modifier = Modifier.height(20.dp))
+        Footer()
+        Spacer(modifier = Modifier.height(24.dp))
     }
 }
